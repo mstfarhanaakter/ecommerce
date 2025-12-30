@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2025 at 06:59 AM
+-- Generation Time: Dec 30, 2025 at 08:09 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -199,6 +199,31 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `role
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user_profile`
+--
+
+CREATE TABLE `user_profile` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `phone_number` varchar(20) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `date_of_birth` date DEFAULT NULL,
+  `profile_picture` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_profile`
+--
+
+INSERT INTO `user_profile` (`id`, `user_id`, `phone_number`, `location`, `address`, `date_of_birth`, `profile_picture`, `created_at`, `updated_at`) VALUES
+(1, 2, '01758170484', 'Dhaka', 'Mirpur 6', '2000-07-09', '2_1767077893.jpg', '2025-12-30 06:48:59', '2025-12-30 06:58:13');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `wishlist`
 --
 
@@ -274,6 +299,13 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `user_profile`
+--
+ALTER TABLE `user_profile`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `wishlist`
 --
 ALTER TABLE `wishlist`
@@ -334,6 +366,12 @@ ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `user_profile`
+--
+ALTER TABLE `user_profile`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
@@ -381,6 +419,12 @@ ALTER TABLE `payments`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `user_profile`
+--
+ALTER TABLE `user_profile`
+  ADD CONSTRAINT `user_profile_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `wishlist`

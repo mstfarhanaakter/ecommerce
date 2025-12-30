@@ -115,7 +115,7 @@ if (!$product) {
                         href="<?= BASE_URL ?>"
                         class="inline-flex items-center justify-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold px-10 py-4 rounded-xl transition"
                     >
-                        ← Continue Shopping
+                         Buy Now
                     </a>
 
                 </div>

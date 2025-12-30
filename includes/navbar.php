@@ -105,7 +105,7 @@ if ($user_id) {
             </svg>
           </label>
           <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-neutral rounded-box w-52 mt-1">
-            <li><a href="<?= BASE_URL ?>profile.php">Profile</a></li>
+            <li><a href="<?= BASE_URL ?>users/profile.php">Profile</a></li>
             <li><a href="<?= BASE_URL ?>orders.php">Orders</a></li>
             <li><a href="<?= BASE_URL ?>users/logout.php">Logout</a></li>
           </ul>
