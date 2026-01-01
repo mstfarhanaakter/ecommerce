@@ -140,11 +140,10 @@ $profile = $profile_result->fetch_assoc() ?? [
                 </div>
             </form>
         </div>
-
-    </div>
+    </div> 
 </div>
 
 
 <?php 
-include __DIR__ . '/../includes/footer.php';    
+include __DIR__ . '/../includes/footer.php';
 ?>
